@@ -1,0 +1,71 @@
+﻿@model Unidad1Act2.Models.Calificacion
+
+<html>
+<head>
+    <title>Calificacion</title>
+    <link rel="stylesheet" href="~/styles.css" />
+    <link rel="stylesheet" href="~/normalize.css" />
+</head>
+
+<body>
+    <nav class="inicionav">
+        <img src="~/logotec.png" />
+        <h1>Capture sus calificaciones</h1>
+    </nav>
+
+    <div class="formulario">
+        <div class="centro">
+            <form action="~/Home/Index">
+        <label>Materia 1</label><br />
+        <input name="Materia1" type="number" />
+        <br />
+        <label>Materia 2 </label><br />
+        <input name="Materia2" type="number" />
+        <br />
+        <label>Materia 3</label><br />
+        <input name="Materia3" type="number" />
+        <br />
+        <input type="submit" value="Calcular" />
+
+               <br />
+        
+ 
+
+
+        <label>Promedio Actual:</label> <label>@Model.Promedio.ToString("0.00")</label> <br />
+        <label> <label>Estado: </label>
+            @if (@Model.Materia1 == 0 && @Model.Materia2 == 0 && @Model.Materia3 == 0)
+            {
+                <label>Escriba calificaciones validas</label>
+            }
+            else if(@Model.Promedio<70)
+            {
+                <label>Reprobado</label>
+            }
+            else
+            {
+                <label>Aprobado</label>
+            }
+        </label>
+
+
+        @*<label>
+        @if(@Model.Materia1==0){
+        <label>Escriba las calificaciones</label>
+        }
+        else if ((@Model.Materia1+@Model.Materia2+@Model.Materia3)/3 < 70)
+        {
+        <label>Reprobado</label>
+        }
+        else
+        {
+        <label>Aprobado</label>
+        }
+        </label>*@
+    </form>
+        </div>
+    </div>
+
+    
+</body>
+</html>
